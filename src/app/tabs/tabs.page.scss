@@ -1,0 +1,13 @@
+.tab-selected {
+    color: red;
+}
+
+ion-tab-button {
+    --ripple-color: green; // Couleur du cercle
+    // --color: green;
+    --color-selected: green;
+}
+
+// selecteur {
+//     background-color: var(--color-selected);
+// }
