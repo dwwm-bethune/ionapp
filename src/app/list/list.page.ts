@@ -7,14 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./list.page.scss'],
 })
 export class ListPage {
-  items: Object[] = [];
+  items: any[] = [];
+  itemAll: any[] = [];
+  gender: string = 'all';
 
   constructor(private http: HttpClient) {}
 
   ionViewWillEnter() {
     this.http.get('https://randomuser.me/api/?results=10').subscribe(response => {
       console.log(response);
-      this.items = response['results'];
+      this.items = this.itemAll = response['results'];
     });
   }
 
@@ -24,6 +26,7 @@ export class ListPage {
     // Le code à faire... AJAX + Ajout dans le tableau
     this.http.get('https://randomuser.me/api/?results=10').subscribe(response => {
       this.items = this.items.concat(response['results']);
+      this.itemAll = this.itemAll.concat(response['results']);
       event.target.complete();
 
       if (this.items.length >= 200) {
@@ -36,5 +39,13 @@ export class ListPage {
       // var n = [1, 2, 3].concat([4, 5, 6]);
       // event.target.complete();
     }, 500);
+  }
+
+  filter(event) {
+    this.items = this.itemAll;
+
+    if (event.detail.value != 'all') {
+      this.items = this.itemAll.filter(item => item.gender == event.detail.value);
+    }
   }
 }

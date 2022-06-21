@@ -5,6 +5,19 @@
     </ion-buttons>
     <ion-title>Liste</ion-title>
   </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="gender" value="all" (ionChange)="filter($event)">
+      <ion-segment-button value="all">
+        <ion-label>Tous</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="male">
+        <ion-label>Homme</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="female">
+        <ion-label>Femme</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
