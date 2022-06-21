@@ -14,8 +14,8 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-list *ngFor="let item of items">
-    <ion-item>
+  <ion-list>
+    <ion-item routerLink="/detail" [state]="item" *ngFor="let item of items">
       <ion-avatar slot="start">
         <img [src]="item.picture.medium">
       </ion-avatar>
