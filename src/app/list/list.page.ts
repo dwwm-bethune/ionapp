@@ -10,8 +10,13 @@ export class ListPage {
   items: any[] = [];
   itemAll: any[] = [];
   gender: string = 'all';
+  presentingElement;
 
   constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.presentingElement = document.querySelector('#main-content');
+  }
 
   ionViewWillEnter() {
     this.http.get('https://randomuser.me/api/?results=10').subscribe(response => {
@@ -27,6 +32,11 @@ export class ListPage {
     this.http.get('https://randomuser.me/api/?results=10').subscribe(response => {
       this.items = this.items.concat(response['results']);
       this.itemAll = this.itemAll.concat(response['results']);
+
+      if (this.gender != 'all') {
+        this.items = this.itemAll.filter(item => item.gender == this.gender);
+      }
+
       event.target.complete();
 
       if (this.items.length >= 200) {
