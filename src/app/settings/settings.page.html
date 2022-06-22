@@ -13,4 +13,18 @@
       <ion-title size="large">Settings</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <form (ngSubmit)="save()" #form="ngForm">
+    <ion-list lines="full" class="ion-no-margin ion-no-padding">
+      <ion-item>
+        <ion-label position="floating">Pseudo</ion-label>
+        <ion-input [(ngModel)]="username" name="username" type="text" required minlength="3" #name="ngModel"></ion-input>
+      </ion-item>
+      <span *ngIf="name.invalid && name.dirty">Votre pseudo doit faire 3 caractères</span>
+    </ion-list>
+
+    <div class="ion-padding">
+      <ion-button color="primary" expand="block" class="ion-no-margin" type="submit" [disabled]="!form.valid">Enregistrer</ion-button>
+    </div>
+  </form>
 </ion-content>

@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./detail.page.scss'],
 })
 export class DetailPage {
-  user: Object = {};
+  user: any = {};
 
   constructor(private router: Router) { }
 

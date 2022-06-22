@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./pokemons.page.scss'],
 })
 export class PokemonsPage {
-  pokemons: Object[] = [];
+  pokemons: any[] = [];
 
   constructor(private http: HttpClient) {}
 

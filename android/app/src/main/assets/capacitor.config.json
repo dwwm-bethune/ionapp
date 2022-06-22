@@ -1,0 +1,6 @@
+{
+	"appId": "com.boxydev.ionapp",
+	"appName": "ionapp",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

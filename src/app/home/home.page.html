@@ -17,7 +17,9 @@
   </ion-header>
 
   <div id="container">
-    <strong>Bienvenue sur Ion App</strong>
+    <strong *ngIf="!username">Bienvenue sur Ion App</strong>
+    <strong *ngIf="username">Bienvenue {{ username }}</strong>
+
     <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
     <ion-button color="primary" (click)="navToAbout()">A propos</ion-button>
   </div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,17 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(private router: Router) {}
+  username: string = '';
+
+  constructor(
+    private router: Router,
+    private storage: Storage
+  ) {}
+
+  ionViewWillEnter() {
+    this.storage.create();
+    this.storage.get('username').then(username => this.username = username);
+  }
 
   navToAbout() {
     // Naviguer avec le routeur...

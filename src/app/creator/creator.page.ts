@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreatorPage implements OnInit {
   // creators: Array<Object>
-  creators: Object[] = [
+  creators: any[] = [
     { name: 'Fiorella', image: 'fiorella.jpeg', job: 'CEO' },
     { name: 'Matthieu', image: 'matthieu.jpeg', job: 'CTO' },
   ];
